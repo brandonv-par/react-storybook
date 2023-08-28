@@ -1,13 +1,11 @@
 import React from 'react';
-import DetailScreen from './DetailScreen';
-import UserEdit from './EditScreen';
-import UserList from './UserList';
+import TestUserList from './UserList';
 import { Admin, Resource } from 'react-admin'
 import fakeRestProvider from 'ra-data-fakerest';
 
 export default {
-    title: 'PARControl/UserDetail',
-    component: DetailScreen,
+    title: 'TestUserList',
+    component: TestUserList,
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
     tags: ['autodocs'],
 };
@@ -152,52 +150,14 @@ const dataProvider = () =>
                     "organizationId": 3
                 },
             ],
-            "organizations": [
-                {
-                    "id": 1,
-                    "name": "Arbys",
-                    "createdAt": "2023-07-19T00:00:00Z",
-                    "createdBy": 1,
-                    "modifiedAt": "2023-07-19T00:00:00Z",
-                    "modifiedBy": 1,
-                    "isActive": true
-                },
-                {
-                    "id": 2,
-                    "name": "Dairy Queen",
-                    "createdAt": "2023-07-19T00:00:00Z",
-                    "createdBy": 1,
-                    "modifiedAt": "2023-07-19T00:00:00Z",
-                    "modifiedBy": 1,
-                    "isActive": true
-                },
-                {
-                    "id": 3,
-                    "name": "Zaxbys",
-                    "createdAt": "2023-07-19T00:00:00Z",
-                    "createdBy": 1,
-                    "modifiedAt": "2023-07-19T00:00:00Z",
-                    "modifiedBy": 1,
-                    "isActive": true
-                },
-                {
-                    "id": 4,
-                    "name": "Par",
-                    "createdAt": "2023-07-19T00:00:00Z",
-                    "createdBy": 1,
-                    "modifiedAt": "2023-07-19T00:00:00Z",
-                    "modifiedBy": 1,
-                    "isActive": true
-                }
-            ],
             events: [],
             performances: [],
         },
         process.env.NODE_ENV !== 'test'
     );
 
-    export const Default = () => (
+    export const Test = () => (
         <Admin dataProvider={dataProvider()}>
-            <Resource name="users" options={{ label: 'Users' }} list={UserList} edit={UserEdit} show={DetailScreen} recordRepresentation="name"  />
+            <Resource name="users" list={TestUserList} />
         </Admin>
     )
